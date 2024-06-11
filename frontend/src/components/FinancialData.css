@@ -1,0 +1,27 @@
+.financial-data {
+    background-color: #1c1c3f;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    color: #e8e8ff;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  h2, h3 {
+    color: #a3a3ff;
+  }
+  
+  p, li {
+    color: #e8e8ff;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  

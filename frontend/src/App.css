@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+  background-color: #0c0c1f;
+  color: #e8e8ff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-header {
+  margin: 20px;
+}
+
+.App-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.financial-data {
+  background-color: #1c1c3f;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  width: 80%;
+}
+
+h1, h2 {
+  color: #a3a3ff;
+}

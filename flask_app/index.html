@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .data-container {
+            margin-top: 20px;
+        }
+        .data-section {
+            margin-bottom: 20px;
+        }
+        .data-section strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow: auto;
+            white-space: pre-wrap; /* Allows text wrapping */
+        }
+    </style>
+</head>
+<body>
+    <h1>Financial Data</h1>
+    <div id="data" class="data-container"></div>
+
+    <script>
+        axios.get('http://127.0.0.1:8001/financials')
+            .then(response => {
+                const data = response.data;
+                const dataDiv = document.getElementById('data');
+
+                let htmlContent = `<div class="data-section"><strong>Analyst Estimates:</strong><pre>${JSON.stringify(data.analyst_estimates, null, 2)}</pre></div>`;
+                htmlContent += `<div class="data-section"><strong>Current Ratio:</strong> ${data.current_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>Debt to Equity Ratio:</strong> ${data.debt_to_equity_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>EPS:</strong> ${data.eps}</div>`;
+                htmlContent += `<div class="data-section"><strong>Market AP:</strong> ${data.market_ap}</div>`;
+                htmlContent += `<div class="data-section"><strong>News:</strong><pre>${JSON.stringify(data.news, null, 2)}</pre></div>`;
+                htmlContent += `<div class="data-section"><strong>PB Ratio:</strong> ${data.pb_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>PE Ratio:</strong> ${data.pe_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>PEG Ratio:</strong> ${data.peg_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>PS Ratio:</strong> ${data.ps_ratio}</div>`;
+                htmlContent += `<div class="data-section"><strong>Shares Outstanding:</strong> ${data.shares_outstanding}</div>`;
+                htmlContent += `<div class="data-section"><strong>Ticker:</strong> ${data.ticker}</div>`;
+
+                dataDiv.innerHTML = htmlContent;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</body>
+</html>
